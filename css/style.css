@@ -1,0 +1,134 @@
+/* стиль таблицы */
+table {
+	border-collapse: collapse;
+	border: 1px solid black;
+	width: 700px;
+}
+td, th {
+	height: 35px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+/* для заголовков и иконок сортировки задаются отступы */
+#name-header {
+	margin-left: 100px;
+}
+#name-sort {
+	margin-left: 90px;
+	cursor: pointer;
+}
+#price-header {
+	margin-left: 30px;
+}
+#price-sort {
+	margin-left: 30px;
+	cursor: pointer;
+}
+
+/* ячейки "наименование" и "количество" объединены в одну */
+/* стиль ячейки "наименование" */
+.left {
+	padding-left: 15px;
+	text-align: left;
+	border-right: 0px solid white;
+}
+/* стиль ячейки "количество" */
+.right {
+	padding-right: 5px;
+	border-left: 0px solid white;
+}
+/* стиль кнопок в таблице */
+.table-btn {
+	width: 100px;
+	margin: 5px;
+}
+
+/* стиль интерфейса сверху и снизу */
+.top, .bottom {
+	width: 700px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.top {
+	position: relative;
+}
+
+/* ширина поля ввода для поиска */
+#search-input {
+	width: 250px;
+}
+
+/* кнопка "Add New" размещается справа */
+#add-new-btn {
+	position: absolute;
+	overflow: auto;
+	right: 0px;
+}
+
+/* стиль интерфейса внизу */
+
+/* надпись и соответствующее ей поле хранятся в одном контейнере div */
+.vert {
+	position: relative;
+}
+/* для каждого из контейнеров задается отступ слева */
+.count-wrapper {
+	left: 210px;
+}
+.price-wrapper {
+	left: 260px;
+}
+/* надпись размещается над соответствующем ей полем */
+.vert span, .vert input {
+	position: absolute;
+	overflow: auto;
+}
+.vert span {
+	top: 0;
+}
+.vert input {
+	top: 22px;
+}
+/* задается высота полей для ввода */
+.bottom-input {
+	height: 15px;
+}
+/* задается ширина полей для ввода */
+#name-input {
+	width: 200px;
+}
+#count-input {
+	width: 40px;
+}
+#price-input {
+	width: 150px;
+}
+/* задается стиль кнопки "Add / Update" */
+#add-update-btn {
+	position: absolute;
+	top: 22px;
+	left: 420px;
+	width: 80px;
+}
+
+/* объект, содержащий сообщения об ошибках изначально невидим */
+#error {
+	position: relative;
+	top: 50px;
+	visibility: hidden;
+}
+/* задается стиль сообщений об ошибках */
+#error span {
+	background-color: #BB0000;
+	color: white;
+}
+
+/* задается стиль окна подтверждения */
+#delete-confirm {
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	border: 1px solid black;
+	background-color: #eeeeee;
+}

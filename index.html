@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- подключение иконок -->
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	<!-- подключение стилей -->
+	<link href="css/style.css" rel="stylesheet">
+	<!-- подключение скриптов -->
+	<script src="scripts/product_list.js"></script>
+	<script src="scripts/button_scripts.js"></script>
+	<script>
+		/* после загрузки страницы таблицы заполняется значениями из файла product_list.js */
+		window.onload = function() {
+			for (var i = 0; i < product_list.length; i++)
+			{
+				var prod = product_list[i];
+				var money = numberToMoney(prod.price.toString());
+				addRow(prod.name, prod.count, money);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<!-- верхняя часть интерфейса: поле для фильтра, кнопки Search и Add New -->
+		<div class="top">
+			<input id="search-input" type="text" placeholder="Поиск...">
+			<button id="search-btn" onclick="searchProd()">Search</button>
+			<button id="add-new-btn" onclick="addNewBtn()">Add New</button>
+		</div>
+		
+		<!-- таблица -->
+		<table id="product-table">
+			<tr>
+				<th width="300" colspan="2">
+					<span id="name-header">Name</span>
+					<span id="name-sort" class="fa fa-sort-asc fa-lg" aria-hidden="true" onclick="sortProd(this)"></span>
+				</th>
+				<th width="150">
+					<span id="price-header">Price</span>
+					<span id="price-sort" class="fa fa-sort-asc fa-lg" aria-hidden="true" onclick="sortProd(this)"></span>
+				</th>
+				<th width="250">Actions</th>
+			</tr>
+		</table>
+		
+		<!-- нижняя часть интерфейса: поля для ввода и надписи над ними -->
+		<div class="bottom">
+			<div class="vert">
+				<span>Name:</span>
+				<input id="name-input" class="bottom-input" type="text">
+			</div>
+			<div class="vert count-wrapper">
+				<span>Count:</span>
+				<input id="count-input" class="bottom-input" type="number">
+			</div>
+			<div class="vert price-wrapper">
+				<span>Price:</span>
+				<input id="price-input" class="bottom-input" type="text"  onfocus="priceOnFocus(this)" onblur="priceOnBlur(this.value)">
+			</div>
+			<div class="vert">
+				<button id="add-update-btn" value="-1" onclick="addUpdateProd(this.innerHTML, this.value)">Add</button>
+			</div>
+			<!-- в этом элементе выводятся сообщения об ошибках -->
+			<div id="error"></div>
+		</div>
+		
+		<!-- диалоговое окно для подтверждения удаления товара -->
+		<dialog id="delete-confirm">
+			<p>Вы уверены, что хотите удалить товар?</p>
+			<button id="delete-confirm-yes" onclick="deleteConfirmYes(this.value)">Да</button>
+			<button onclick="closeConfirmDialog()">Нет</button>
+		</dialog>
+	</div>
+</body>
+</html>
